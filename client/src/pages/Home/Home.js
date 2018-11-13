@@ -7,12 +7,20 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List } from "../../components/List";
+import nba from './nba.jpg';
+import nfl from './nfl.jpg';
 
+const spacer = {
+  height: '100px'
+};
 class Home extends Component {
-  state = {
-    books: [],
-    q: "",
-    message: "Search For A Book To Begin!"
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
   };
 
   handleInputChange = event => {
@@ -56,30 +64,80 @@ class Home extends Component {
     }).then(() => this.getBooks());
   };
 
+  componentDidMount() {
+    fetch("http://data.nba.net/10s/prod/v1/today.json")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+  render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ul>
+          {items.map(item => (
+            <li key={item.name}>
+              {item.name} {item.price}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+
+
+
   render() {
     return (
       <Container>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
-              <h1 className="text-center">
+          <div className="spacer" style={spacer}>
+
+          </div>
+          </Col>
+          <Col  size="md-12">
+            <img  src={nba} width="50%" height="100%" />
+            <img  src={nfl} width="50%" height="100%" />
+
+              {/* <h1 className="text-center">
                 <strong>(React) Google Books Search</strong>
               </h1>
-              <h2 className="text-center">Search for and Save Books of Interest.</h2>
-            </Jumbotron>
+              <h2 className="text-center">Search for and Save Books of Interest.</h2> */}
+          
           </Col>
           <Col size="md-12">
-            <Card title="Book Search" icon="far fa-book">
+            {/* <Card title="Book Search" icon="far fa-book">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 q={this.state.q}
               />
-            </Card>
+            </Card> */}
           </Col>
-        </Row>
+        </Row>  
+        
         <Row>
-          <Col size="md-12">
+          {/* <Col size="md-12">
             <Card title="Results">
               {this.state.books.length ? (
                 <List>
@@ -107,9 +165,9 @@ class Home extends Component {
                 <h2 className="text-center">{this.state.message}</h2>
               )}
             </Card>
-          </Col>
+          </Col> */}
         </Row>
-        <Footer />
+        {/* <Footer /> */}
       </Container>
     );
   }
