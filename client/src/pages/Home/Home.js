@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
-import Card from "../../components/Card";
-import Form from "../../components/Form";
-import Book from "../../components/Book";
-import Footer from "../../components/Footer";
+// import Jumbotron from "../../components/Jumbotron";
+// import Card from "../../components/Card";
+// import Form from "../../components/Form";
+// import Book from "../../components/Book";
+// import Footer from "../../components/Footer";
+//import Table from "../../components/Table";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
-import { List } from "../../components/List";
+// import { List } from "../../components/List";
 import nba from './nba.jpg';
 import nfl from './nfl.jpg';
 
@@ -23,12 +24,47 @@ class Home extends Component {
     };
   };
 
+  
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+  getLines = () => {
+    API.getLines()
+    .then(APIresponse => console.log(APIresponse))
+      .catch(err => console.log(err));
+  };
+
+  componentDidMount() {
+    console.log('I was triggered during componentDidMount')
+    this.getLines();
+  }
+  // componentDidMount() {
+  //   fetch("https://api.example.com/items")
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         console.log('i got results')
+  //         console.log(result)
+  //         this.setState({
+  //           isLoaded: true,
+  //           items: result.items
+  //         });
+  //       },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+  //       (error) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           error
+  //         });
+  //       }
+  //     )
+  // }
 
   getBooks = () => {
     API.getBooks(this.state.q)
@@ -64,27 +100,7 @@ class Home extends Component {
     }).then(() => this.getBooks());
   };
 
-  componentDidMount() {
-    fetch("http://data.nba.net/10s/prod/v1/today.json")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
+  
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
@@ -125,16 +141,10 @@ class Home extends Component {
               <h2 className="text-center">Search for and Save Books of Interest.</h2> */}
           
           </Col>
-          <Col size="md-12">
-            {/* <Card title="Book Search" icon="far fa-book">
-              <Form
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-                q={this.state.q}
-              />
-            </Card> */}
-          </Col>
-        </Row>  
+        </Row> 
+        
+        <Row>
+        </Row>
         
         <Row>
           {/* <Col size="md-12">
