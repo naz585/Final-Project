@@ -6,9 +6,9 @@ export default {
     return axios.get("/api/google", { params: { q: "title:" + q } });
   },
   getLines: function() {
-    return axios.get("/api/lines")
+    return axios.get("/api/lines").then(response => response.data)
   },
-
+    
   // Gets all saved books
   getSavedBooks: function() {
     return axios.get("/api/books");
@@ -22,3 +22,8 @@ export default {
     return axios.post("/api/books", bookData);
   }
 };
+
+
+/*
+ES6 => then(response => response.data)
+*/

@@ -34,6 +34,7 @@ class Home extends Component {
   };
   getLines = () => {
     API.getLines()
+    .then(APIresponse => console.log(APIresponse))
       .catch(err => console.log(err));
   };
 
@@ -41,7 +42,29 @@ class Home extends Component {
     console.log('I was triggered during componentDidMount')
     this.getLines();
   }
-
+  // componentDidMount() {
+  //   fetch("https://api.example.com/items")
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         console.log('i got results')
+  //         console.log(result)
+  //         this.setState({
+  //           isLoaded: true,
+  //           items: result.items
+  //         });
+  //       },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+  //       (error) => {
+  //         this.setState({
+  //           isLoaded: true,
+  //           error
+  //         });
+  //       }
+  //     )
+  // }
 
   getBooks = () => {
     API.getBooks(this.state.q)

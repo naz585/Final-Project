@@ -5,6 +5,6 @@ module.exports = {
     scrapelines: function(req, res) {
       return scrape()
         .then(function(lines) {
-          console.log(lines);
+          return res.json(lines);
         })
     }}
