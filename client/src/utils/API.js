@@ -25,5 +25,8 @@ export default {
 
 
 /*
-ES6 => then(response => response.data)
+ES6 => response => response.data
+ES5 => function(response) {
+        return response.data
+      }
 */

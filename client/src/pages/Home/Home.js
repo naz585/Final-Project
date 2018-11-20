@@ -5,11 +5,11 @@ import React, { Component } from "react";
 // import Book from "../../components/Book";
 // import Footer from "../../components/Footer";
 //import Table from "../../components/Table";
+import marquee from "../../components/marquee"
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List } from "../../components/List";
-import nba from './nba.jpg';
-import nfl from './nfl.jpg';
+
 
 const spacer = {
   height: '100px'
@@ -125,6 +125,17 @@ class Home extends Component {
   render() {
     return (
       <Container>
+      <Row>
+        <Col size="md-12">
+
+        <marquee>
+          <h1>
+            test
+          </h1>
+        </marquee>
+        </Col>
+        </Row>
+
         <Row>
           <Col size="md-12">
           <div className="spacer" style={spacer}>
@@ -132,8 +143,7 @@ class Home extends Component {
           </div>
           </Col>
           <Col  size="md-12">
-            <img  src={nba} width="50%" height="100%" />
-            <img  src={nfl} width="50%" height="100%" />
+            
 
               {/* <h1 className="text-center">
                 <strong>(React) Google Books Search</strong>
