@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import steph from './stephCurry.png';
+import beast from './Beast.png';
 
 class Nav extends Component {
   state = {
@@ -33,9 +35,12 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+      <img className="navPic ml-5" src={steph} width="100px" height="144px" />
         <Link className="navbar-brand mx-auto" to="/">
           Cashing Winners
         </Link>
+        
+        <img className="navPic mr-5" src={beast} width="100px" height="144" />
         {/* <button
           onClick={this.toggleNav}
           className="navbar-toggler"
