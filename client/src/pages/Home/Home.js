@@ -6,6 +6,7 @@ import React, { Component } from "react";
 // import Footer from "../../components/Footer";
 //import Table from "../../components/Table";
 import marquee from "../../components/marquee"
+import table from "../../components/Table"
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List } from "../../components/List";
@@ -136,6 +137,42 @@ class Home extends Component {
         </Col>
         </Row>
 
+        <Row>
+        <Col size="md-12">
+        <table>
+        <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+
+        </table>
+
+      </Col>
+        </Row>
         <Row>
           <Col size="md-12">
           <div className="spacer" style={spacer}>
