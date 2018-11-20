@@ -4,6 +4,7 @@ import Card from "../../components/Card";
 import Form from "../../components/Form";
 import Book from "../../components/Book";
 import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List } from "../../components/List";
@@ -118,6 +119,13 @@ class Home extends Component {
           <Col  size="md-12">
             <img  src={nba} width="50%" height="100%" />
             <img  src={nfl} width="50%" height="100%" />
+
+                        <Link to={"/NFL/"}>
+                      <strong>
+                        NFL Page
+                      </strong>
+                    </Link>
+
 
               {/* <h1 className="text-center">
                 <strong>(React) Google Books Search</strong>
