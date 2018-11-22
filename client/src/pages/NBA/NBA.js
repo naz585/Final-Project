@@ -1,72 +1,54 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
-import Card from "../../components/Card";
-import Book from "../../components/Book";
-import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
-import { List } from "../../components/List";
+import { List, ListItem } from "../../components/List";
+import { Input, TextArea, FormBtn } from "../../components/Form";
 
 class NBA extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          error: null,
-          isLoaded: false,
-          items: []
-        };
-      }
+  state = {
+    games: []
+  };
 
   componentDidMount() {
-    fetch("/api/nfl/scores")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-
-      console.log(this.state.items)
+    this.loadBooks();
   }
 
+  loadBooks = () => {
+    API.getGames()
+      .then(res => this.setState({ games: res.data }))
+      .catch(err => console.log(err));
+  };
 
   render() {
-    return(
-
-    <Container fluid>
-    <Row>
-      <Col size="md-12">
-        <Jumbotron>
-            
-            {this.state.items}
-        
-
-        
-
-        
-        </Jumbotron>
-      </Col>
-    </Row>
-  </Container>
-
-
-
-    )
-    }
+    return (
+      <Container fluid>
+        <Row>
+          <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h1>Games</h1>
+            </Jumbotron>
+            {this.state.games.length ? (
+              <List>
+                {this.state.games.map(book => (
+                  <ListItem key={book._id}>
+                    <a href={"/books/" + book._id}>
+                      <strong>
+                        {book.title} by {book.author}
+                      </strong>
+                    </a>
+                    
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </Col>
+        </Row>
+      </Container>
+    );
   }
-
+}
 
 export default NBA;

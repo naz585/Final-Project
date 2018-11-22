@@ -24,11 +24,12 @@ router.route("/games").get(function (req,res){
     
     
 
-    msf.getData('nba', '2016-2017-regular', 'weekly_games','json','wek1', {}).then(function(data){
-        console.log(msf)
+    msf.getData('nba', '2018-2019-regular', 'daily_games','json',{date:'20181121'}).then(function(data){
+      //console.log(msf)
       res.send(data)
       })
 
+      //function(league, season, feed, format, params)
 
 })
 
