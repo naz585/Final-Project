@@ -9,6 +9,7 @@ import marquee from "../../components/marquee"
 import table from "../../components/Table"
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
+import data from "../../results/daily_games-nba-2018-2019-regular.json"
 // import { List } from "../../components/List";
 
 
@@ -39,9 +40,17 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
+  getGames = () => {
+    API.getGames()
+    .then(APIresponse => console.log(APIresponse))
+      .catch(err => console.log(err));
+  };
+
   componentDidMount() {
     console.log('I was triggered during componentDidMount')
+    console.log(data.games);
     this.getLines();
+    this.getGames();
   }
   // componentDidMount() {
   //   fetch("https://api.example.com/items")
@@ -66,6 +75,22 @@ class Home extends Component {
   //       }
   //     )
   // }
+
+  ScheduleA = () => {
+    let styles = {
+      marginRight: '10 px'
+    }
+    let awayteams = []
+    for (let i = 0; i < data.games.length; i++) {
+
+      awayteams.push(<div style={styles}>{data.games[i].schedule.awayTeam.abbreviation}
+      <br/>
+      {data.games[i].schedule.homeTeam.abbreviation}
+      </div> )
+    }
+    return awayteams
+
+  }
 
   getBooks = () => {
     API.getBooks(this.state.q)
@@ -130,9 +155,9 @@ class Home extends Component {
         <Col size="md-12">
 
         <marquee>
-          <h1>
-            test
-          </h1>
+          <h3>
+          {this.ScheduleA()}
+          </h3>
         </marquee>
         </Col>
         </Row>
