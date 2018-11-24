@@ -78,7 +78,11 @@ class Home extends Component {
 
   ScheduleA = () => {
     let styles = {
-      marginRight: '10 px'
+      
+      width: "9%",
+     margin: "0",
+     padding: "0",
+     float: "left"
     }
     let awayteams = []
     for (let i = 0; i < data.games.length; i++) {
