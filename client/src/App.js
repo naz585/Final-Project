@@ -1,8 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
-import Saved from "./pages/Saved";
-import NoMatch from "./pages/NoMatch";
+import NFL from "./pages/NFL";
+import NBA from "./pages/NBA";
+import Login from "./pages/LogIn";
+import Signup from "./pages/SignUp";
+
 import Nav from "./components/Nav";
 
 const App = () => (
@@ -11,8 +14,10 @@ const App = () => (
       <Nav />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/saved" component={Saved} />
-        <Route component={NoMatch} />
+        <Route exact path="/NFL" component={NFL} />
+        <Route exact path="/NBA" component={NBA} />
+        <Route exact path="/LogIn" component={Login} />
+        <Route exact path="/SignUp" component={Signup} />
       </Switch>
     </div>
   </Router>

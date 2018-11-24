@@ -8,6 +8,10 @@ export default {
   getLines: function() {
     return axios.get("/api/lines").then(response => response.data)
   },
+
+  getGames: function (){
+    return axios.get("/api/nba").then(response => response.data)
+  },
     
   // Gets all saved books
   getSavedBooks: function() {

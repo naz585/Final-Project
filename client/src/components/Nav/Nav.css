@@ -1,6 +1,9 @@
 .navbar {
   border-radius: 0;
+  background: BLACK;
 }
+
+
 @font-face {
   font-family: FiveDollar;
   src: url(FiveDollar.ttf);
@@ -8,9 +11,13 @@
 .navbar-brand{
   font-family: FiveDollar;
   font-size: 50px;
+  
 }
 
 .navPic{
   opacity: 0.5;
 }
 
+#navbarNav{
+  position:relative;
+}
