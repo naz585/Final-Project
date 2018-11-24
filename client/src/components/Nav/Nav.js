@@ -67,7 +67,7 @@ class Nav extends Component {
                 to="/NFL"
               >
                 NFL
-                
+
               </Link>
             </li> 
             <li className="nav-item">
@@ -79,6 +79,17 @@ class Nav extends Component {
                 
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link
+                className={window.location.pathname === "/FAQ" ? "nav-link active" : "nav-link"}
+                to="/FAQ"
+              >
+                FAQ
+                
+              </Link>
+            </li> 
+
             <li className="nav-item">
               <Link
                 className={window.location.pathname === "/SignUp" ? "nav-link active" : "nav-link"}
