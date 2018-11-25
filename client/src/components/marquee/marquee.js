@@ -3,7 +3,7 @@ import "./marquee.css";
 
 
 const marquee = ({ children }) => (
-    <div className="marquee">
+    <div className = "marquee">
       {children}
     </div>
   );

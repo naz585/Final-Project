@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // import Book from "../../components/Book";
 // import Footer from "../../components/Footer";
 //import Table from "../../components/Table";
-import marquee from "../../components/marquee"
+import Marquee from "../../components/marquee"
 import table from "../../components/Table"
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
@@ -78,13 +78,16 @@ class Home extends Component {
 
   ScheduleA = () => {
     let styles = {
-      marginRight: '10 px'
+      width: "125px",
+      margin: "0",
+      padding: "0",
+      float: "left"
     }
     let awayteams = []
     for (let i = 0; i < data.games.length; i++) {
 
-      awayteams.push(<div style={styles}>{data.games[i].schedule.awayTeam.abbreviation}
-      <br/>
+      awayteams.push(<div key={i} style={styles}>{data.games[i].schedule.awayTeam.abbreviation}
+      @
       {data.games[i].schedule.homeTeam.abbreviation}
       </div> )
     }
@@ -154,11 +157,11 @@ class Home extends Component {
       <Row>
         <Col size="md-12">
 
-        <marquee>
+        <Marquee>
           <h3>
           {this.ScheduleA()}
           </h3>
-        </marquee>
+        </Marquee>
         </Col>
         </Row>
 
