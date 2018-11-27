@@ -2,12 +2,12 @@ import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
 
-const NoMatch = () => (
+const NFL = () => (
   <Container fluid>
     <Row>
       <Col size="md-12">
         <Jumbotron>
-          <h1 className="text-center">404 Page Not Found</h1>
+          <h1 className="text-center">NFL Page Not Found</h1>
           <h1 className="text-center">
             <span role="img" aria-label="Face With Rolling Eyes Emoji">
               🙄
@@ -19,4 +19,4 @@ const NoMatch = () => (
   </Container>
 );
 
-export default NoMatch;
+export default NFL;

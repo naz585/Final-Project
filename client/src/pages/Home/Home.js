@@ -22,9 +22,8 @@ class Home extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      games: [],
-      scrappedData: []
-    };
+      lines: []
+    }
   };
 
   
@@ -37,10 +36,12 @@ class Home extends Component {
   };
   getLines = () => {
     API.getLines()
-    .then(APIresponse => this.setState({ scrappedData: APIresponse }))
+    .then(APIresponse =>{
+      console.log('got lines', APIresponse)
+       this.setState({lines: APIresponse})}
+       )
       .catch(err => console.log(err));
   };
-
   getGames = () => {
     API.getGames()
       .then(res => this.setState({ games: res.data }))
@@ -54,6 +55,7 @@ class Home extends Component {
     this.getLines();
     this.getGames();
     
+
     // this.getGames();
   }
   // componentDidMount() {
@@ -98,6 +100,7 @@ class Home extends Component {
   //   let awayteams = []
   //   for (let i = 0; i < this.state.games.games.length; i++) {
 
+
   //     awayteams.push(<div key={i} style={styles}>{this.state.games.games[i].schedule.awayTeam.abbreviation}
   //     <br/>
   //     {this.state.games.games[i].schedule.homeTeam.abbreviation}
@@ -107,43 +110,18 @@ class Home extends Component {
 
   // }
 
-  getBooks = () => {
-    API.getBooks(this.state.q)
-      .then(res =>
-        this.setState({
-          books: res.data
-        })
+
+  scrapedGames = () => {
+    const lines = this.state.lines.slice(1);
+      return (
+        <tbody>
+          {lines.map((line, idx) => <tr key={idx}><td>{line.teams}</td><td>{line.mls.ml}</td><td>{line.spreads.spread}</td><td>{line.totals.total}</td></tr>)}
+        </tbody>
       )
-      .catch(() =>
-        this.setState({
-          books: [],
-          message: "No New Books Found, Try a Different Query"
-        })
-      );
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getBooks();
-  };
-
-  handleBookSave = id => {
-    const book = this.state.books.find(book => book.id === id);
-
-    API.saveBook({
-      googleId: book.id,
-      title: book.volumeInfo.title,
-      subtitle: book.volumeInfo.subtitle,
-      link: book.volumeInfo.infoLink,
-      authors: book.volumeInfo.authors,
-      description: book.volumeInfo.description,
-      image: book.volumeInfo.imageLinks.thumbnail
-    }).then(() => this.getBooks());
-  };
-
-
+    }
 
   render() {
+    const lines = this.state.lines;
     return (
       <Container>
         {console.log(this.state.games)}
@@ -158,44 +136,20 @@ class Home extends Component {
         </Marquee>
         </Col>
         </Row>
-        {console.log(this.state.scrappedData)}
-        <Row>
-        <Col size="md-12">
-        for loop
-        <table className="table-striped table-bordered lines">
-        <thead>
-    <tr>
-      <th scope="col">{}</th>
-      <th scope="col">Spread</th>
-      <th scope="col">Moneyline</th>
-      <th scope="col">Under/Over</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
 
-        </table>
+          <Row>
+            <Col size="md-12">
+              <table className="table-striped table-bordered lines">
+                <thead>
+                  <tr>
+                    <th scope="col">Away/Home</th>
+                    <th scope="col">Spread</th>
+                    <th scope="col">Moneyline</th>
+                    <th scope="col">Under/Over</th>
+                </tr>
+              </thead>
+                {lines.length <= 0 ? null : this.scrapedGames()}
+             </table>
 
       </Col>
         </Row>

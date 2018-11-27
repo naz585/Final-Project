@@ -34,44 +34,73 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-      <img className="navPic ml-5" src={steph} width="100px" height="144px" />
+
+      <nav className="navbar navbar-expand-lg navbar-dark mb-2">
+      <img className="navPic ml-5" src="https://sportshub.cbsistatic.com/i/r/2018/09/15/f0e813c2-ad7f-453e-855d-097d9f4feed7/thumbnail/770x433/cdf43928ded227cc4f95dd2b8d702116/top100-cover.png  " width="300px" height="144px" />
+        <div className="mx-auto">
         <Link className="navbar-brand mx-auto" to="/">
           Cashing Winners
         </Link>
         
-        <img className="navPic mr-5" src={beast} width="100px" height="144" />
-        {/* <button
+        
+         <button
           onClick={this.toggleNav}
-          className="navbar-toggler"
+          className="navbar-toggler mx-auto"
           data-toggle="collapse"
           data-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        > */}
-          {/* <span className="navbar-toggler-icon" />
+        > 
+           <span className="navbar-toggler-icon" />
         </button>
-        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
-          <ul className="navbar-nav"> */}
-            {/* <li className="nav-item">
+            
+            
+
+            
+        
+        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse mx-auto`} id="navbarNav">
+          <ul className="navbar-nav mx-auto"> 
+             <li className="nav-item">
               <Link
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/"
+                className={window.location.pathname === "/NFL" ? "nav-link active" : "nav-link"}
+                to="/NFL"
               >
-                Search
+                NFL
+                
               </Link>
-            </li> */}
-            {/* <li className="nav-item">
+            </li> 
+            <li className="nav-item">
               <Link
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                to="/saved"
+                className={window.location.pathname === "/NBA" ? "nav-link active" : "nav-link"}
+                to="/NBA"
               >
-                Saved
+                NBA
+                
               </Link>
-            </li> */}
-          {/* </ul>
-        </div> */}
+            </li>
+            <li className="nav-item">
+              <Link
+                className={window.location.pathname === "/SignUp" ? "nav-link active" : "nav-link"}
+                to="/SignUp"
+              >
+                Sign Up
+                
+              </Link>
+            </li> 
+            <li className="nav-item">
+              <Link
+                className={window.location.pathname === "/LogIn" ? "nav-link active" : "nav-link"}
+                to="/LogIn"
+              >
+                Log In
+                
+              </Link>
+            </li> 
+           </ul>
+        </div>
+        </div>
+        <img className="navPic mr-5" src="http://www.ie-wallpapers.com/data/out/168/37366754-nfl-wallpaper.jpg" width="300px" height="144" />
       </nav>
     );
   }

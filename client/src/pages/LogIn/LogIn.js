@@ -7,7 +7,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { List } from "../../components/List";
 
-class Saved extends Component {
+class LogIn extends Component {
   state = {
     books: []
   };
@@ -80,4 +80,4 @@ class Saved extends Component {
   }
 }
 
-export default Saved;
+export default LogIn;
