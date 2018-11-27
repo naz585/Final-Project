@@ -16,7 +16,10 @@ class NBA extends Component {
 
   loadBooks = () => {
     API.getGames()
-      .then(res => this.setState({ games: res.data }))
+      .then(res => {
+        console.log('data', res.data)
+        this.setState({ games: res.data })
+      })
       .catch(err => console.log(err));
   };
 
@@ -27,6 +30,7 @@ class NBA extends Component {
           <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Games</h1>
+
             </Jumbotron>
             {this.state.games.length ? (
               <List>
