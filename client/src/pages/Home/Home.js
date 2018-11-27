@@ -22,8 +22,9 @@ class Home extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
-    };
+      items: [],
+      lines: []
+    }
   };
 
   
@@ -36,13 +37,15 @@ class Home extends Component {
   };
   getLines = () => {
     API.getLines()
-    .then(APIresponse => console.log(APIresponse))
+    .then(APIresponse =>{
+      console.log('got lines', APIresponse)
+       this.setState({lines: APIresponse})}
+       )
       .catch(err => console.log(err));
   };
-
   getGames = () => {
     API.getGames()
-    .then(APIresponse => console.log(APIresponse))
+    .then(res => this.setState({ games: res.data}))
       .catch(err => console.log(err));
   };
 
@@ -50,7 +53,7 @@ class Home extends Component {
     console.log('I was triggered during componentDidMount')
     console.log(data.games);
     this.getLines();
-    this.getGames();
+    // this.getGames();
   }
   // componentDidMount() {
   //   fetch("https://api.example.com/items")
@@ -96,63 +99,18 @@ class Home extends Component {
 
   }
 
-  getBooks = () => {
-    API.getBooks(this.state.q)
-      .then(res =>
-        this.setState({
-          books: res.data
-        })
-      )
-      .catch(() =>
-        this.setState({
-          books: [],
-          message: "No New Books Found, Try a Different Query"
-        })
-      );
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.getBooks();
-  };
-
-  handleBookSave = id => {
-    const book = this.state.books.find(book => book.id === id);
-
-    API.saveBook({
-      googleId: book.id,
-      title: book.volumeInfo.title,
-      subtitle: book.volumeInfo.subtitle,
-      link: book.volumeInfo.infoLink,
-      authors: book.volumeInfo.authors,
-      description: book.volumeInfo.description,
-      image: book.volumeInfo.imageLinks.thumbnail
-    }).then(() => this.getBooks());
-  };
-
-  
-  render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
+  scrapedGames = () => {
+    console.log('i am here')
+    const lines = this.state.lines.slice(1);
       return (
-        <ul>
-          {items.map(item => (
-            <li key={item.name}>
-              {item.name} {item.price}
-            </li>
-          ))}
-        </ul>
-      );
+        <tbody>
+          {lines.map((line, idx) => <tr key={idx}><td>{line.teams}</td><td>{line.mls.ml}</td><td>{line.spreads.spread}</td><td>{line.totals.total}</td></tr>)}
+        </tbody>
+      )
     }
-  }
-
-
 
   render() {
+    const lines = this.state.lines;
     return (
       <Container>
       <Row>
@@ -165,43 +123,19 @@ class Home extends Component {
         </marquee>
         </Col>
         </Row>
-
-        <Row>
-        <Col size="md-12">
-        <table className="table-striped table-bordered lines">
-        <thead>
-    <tr>
-      <th scope="col">Away/Home</th>
-      <th scope="col">Spread</th>
-      <th scope="col">Moneyline</th>
-      <th scope="col">Under/Over</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-  </tbody>
-
-        </table>
+          <Row>
+            <Col size="md-12">
+              <table className="table-striped table-bordered lines">
+                <thead>
+                  <tr>
+                    <th scope="col">Away/Home</th>
+                    <th scope="col">Spread</th>
+                    <th scope="col">Moneyline</th>
+                    <th scope="col">Under/Over</th>
+                </tr>
+              </thead>
+                {lines.length <= 0 ? null : this.scrapedGames()}
+             </table>
 
       </Col>
         </Row>
