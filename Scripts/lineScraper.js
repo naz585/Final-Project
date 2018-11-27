@@ -14,17 +14,15 @@ return axios.get("http://m.espn.com/nfl/dailyline?wjb").then(function(response) 
 
 
     nflResults.push( {
-      first: $(elm).children().first().text(),
-      second: {
-        sell: $(elm).children().eq(1).first().text(),
-        
+      teams: $(elm).children().first().text(),
+      spreads: {
+        spread: $(elm).children().eq(1).first().text(),     
       },
-      third: {
-        sell: $(elm).children().eq(2).first().text(),
-       
+      mls: {
+        ml: $(elm).children().eq(2).first().text(),
       },
-      fourth: {
-        sell: $(elm).children().eq(3).first().text(),
+      totals: {
+        total: $(elm).children().eq(3).first().text(),
         
       }
     });
