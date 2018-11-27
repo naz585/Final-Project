@@ -38,22 +38,23 @@ class Home extends Component {
   };
   getLines = () => {
     API.getLines()
-    // .then(APIresponse => console.log(APIresponse))
-    .then(res => this.setState({ games: res.data }))
+    .then(APIresponse => this.setState({ scrappedData: APIresponse }))
       .catch(err => console.log(err));
   };
 
-  getGames = () => {
-    API.getGames()
-      .then(res => this.setState({ games: res.data }))
-      .catch(err => console.log(err));
-  };
+  // getGames = () => {
+  //   API.getGames()
+  //     .then(res => this.setState({ games: res.data }))
+  //     .catch(err => console.log(err));
+  // };
 
   componentDidMount() {
     console.log('I was triggered during componentDidMount')
+    
     console.log(data);
     this.getLines();
-    this.getGames();
+    
+    // this.getGames();
   }
   // componentDidMount() {
   //   fetch("https://api.example.com/items")
@@ -79,6 +80,14 @@ class Home extends Component {
   //     )
   // }
 
+  //scrapedGames = () => {
+//    let teams = []
+//    for (let j = 1; j < nflResults.length; j++) {
+//      teams.push(<tr><td>{nflResults.first[j]}</td><td>{nflResults.third[j].sell}</td><td>{nflResults.second[j].sell}</td>
+//      <td>{nflResults.fourth[j].sell}</td></tr>)
+//  }
+//  return teams
+// }
   ScheduleA = () => {
     let styles = {
       width: "125px",
@@ -132,26 +141,6 @@ class Home extends Component {
     }).then(() => this.getBooks());
   };
 
-  
-  render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <ul>
-          {items.map(item => (
-            <li key={item.name}>
-              {item.name} {item.price}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  }
-
 
 
   render() {
@@ -167,13 +156,14 @@ class Home extends Component {
         </Marquee>
         </Col>
         </Row>
-
+        {console.log(this.state.scrappedData)}
         <Row>
         <Col size="md-12">
+        for loop
         <table className="table-striped table-bordered lines">
         <thead>
     <tr>
-      <th scope="col">Away/Home</th>
+      <th scope="col">{}</th>
       <th scope="col">Spread</th>
       <th scope="col">Moneyline</th>
       <th scope="col">Under/Over</th>
