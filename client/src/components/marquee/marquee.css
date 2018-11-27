@@ -10,11 +10,12 @@
     position: relative;
     font-family: "RastaManOblique";
     font-size: 12px;
+    background: black
    }
    .marquee h3 {
     font-family: "RastaManOblique";
     font-size: 2em;
-    color: black;
+    color: yellow;
     
     position: absolute;
     width: 100%;

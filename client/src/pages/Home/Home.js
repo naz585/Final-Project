@@ -22,7 +22,9 @@ class Home extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      games: [],
+      scrappedData: []
     };
   };
 
@@ -36,19 +38,20 @@ class Home extends Component {
   };
   getLines = () => {
     API.getLines()
-    .then(APIresponse => console.log(APIresponse))
+    // .then(APIresponse => console.log(APIresponse))
+    .then(res => this.setState({ games: res.data }))
       .catch(err => console.log(err));
   };
 
   getGames = () => {
     API.getGames()
-    .then(APIresponse => console.log(APIresponse))
+      .then(res => this.setState({ games: res.data }))
       .catch(err => console.log(err));
   };
 
   componentDidMount() {
     console.log('I was triggered during componentDidMount')
-    console.log(data.games);
+    console.log(data);
     this.getLines();
     this.getGames();
   }
@@ -87,7 +90,7 @@ class Home extends Component {
     for (let i = 0; i < data.games.length; i++) {
 
       awayteams.push(<div key={i} style={styles}>{data.games[i].schedule.awayTeam.abbreviation}
-      @
+      <br/>
       {data.games[i].schedule.homeTeam.abbreviation}
       </div> )
     }
