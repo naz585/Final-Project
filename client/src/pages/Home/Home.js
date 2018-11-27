@@ -44,43 +44,16 @@ class Home extends Component {
   };
   getGames = () => {
     API.getGames()
-      .then(res => this.setState({ games: res.data }))
+      .then(res => this.setState({ items: res.data }))
       .catch(err => console.log(err));
   };
 
   componentDidMount() {
     console.log('I was triggered during componentDidMount')
-    
-  
     this.getLines();
     this.getGames();
-    
-
     // this.getGames();
   }
-  // componentDidMount() {
-  //   fetch("https://api.example.com/items")
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         console.log('i got results')
-  //         console.log(result)
-  //         this.setState({
-  //           isLoaded: true,
-  //           items: result.items
-  //         });
-  //       },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-  //       (error) => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           error
-  //         });
-  //       }
-  //     )
-  // }
 
   //scrapedGames = () => {
 //    let teams = []
@@ -90,25 +63,20 @@ class Home extends Component {
 //  }
 //  return teams
 // }
-  // ScheduleA = () => {
-  //   let styles = {
-  //     width: "125px",
-  //     margin: "0",
-  //     padding: "0",
-  //     float: "left"
-  //   }
-  //   let awayteams = []
-  //   for (let i = 0; i < this.state.games.games.length; i++) {
-
-
-  //     awayteams.push(<div key={i} style={styles}>{this.state.games.games[i].schedule.awayTeam.abbreviation}
-  //     <br/>
-  //     {this.state.games.games[i].schedule.homeTeam.abbreviation}
-  //     </div> )
-  //   }
-  //   return awayteams
-
-  // }
+  ScheduleA = () => {
+    let styles = {
+      width: "125px",
+      margin: "0",
+      padding: "0",
+      float: "left"
+    }
+    const games = this.state.items.games
+   return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+    <br/>
+    {game.schedule.homeTeam.abbreviation}
+    </div>))
+   
+  }
 
 
   scrapedGames = () => {
@@ -122,17 +90,17 @@ class Home extends Component {
 
   render() {
     const lines = this.state.lines;
+    const games = this.state.items;
     return (
       <Container>
-        {console.log(this.state.games)}
+        {console.log(this.state.items)}
       <Row>
         <Col size="md-12">
         
         <Marquee>
-          games go here
-          {/* <h3>
-          {this.ScheduleA()}
-          </h3> */}
+          <h3>
+          {games.length <= 0 ? null : this.ScheduleA()}
+          </h3>
         </Marquee>
         </Col>
         </Row>

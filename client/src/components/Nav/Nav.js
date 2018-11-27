@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
-import steph from './stephCurry.png';
-import beast from './Beast.png';
+
 
 class Nav extends Component {
   state = {
@@ -36,7 +35,7 @@ class Nav extends Component {
     return (
 
       <nav className="navbar navbar-expand-lg navbar-dark mb-2">
-      <img className="navPic ml-5" src="https://sportshub.cbsistatic.com/i/r/2018/09/15/f0e813c2-ad7f-453e-855d-097d9f4feed7/thumbnail/770x433/cdf43928ded227cc4f95dd2b8d702116/top100-cover.png  " width="300px" height="144px" />
+      <img className="navPic ml-5" src="https://sportshub.cbsistatic.com/i/r/2018/09/15/f0e813c2-ad7f-453e-855d-097d9f4feed7/thumbnail/770x433/cdf43928ded227cc4f95dd2b8d702116/top100-cover.png  " alt='left' width="300px" height="144px" />
         <div className="mx-auto">
         <Link className="navbar-brand mx-auto" to="/">
           Cashing Winners
@@ -100,7 +99,7 @@ class Nav extends Component {
            </ul>
         </div>
         </div>
-        <img className="navPic mr-5" src="http://www.ie-wallpapers.com/data/out/168/37366754-nfl-wallpaper.jpg" width="300px" height="144" />
+        <img className="navPic mr-5" src="http://www.ie-wallpapers.com/data/out/168/37366754-nfl-wallpaper.jpg" alt="right" width="300px" height="144" />
       </nav>
     );
   }
