@@ -9,7 +9,6 @@ import Marquee from "../../components/marquee"
 import table from "../../components/Table"
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
-import data from "../../results/daily_games-nba-2018-2019-regular.json"
 // import { List } from "../../components/List";
 
 
@@ -42,17 +41,18 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-  // getGames = () => {
-  //   API.getGames()
-  //     .then(res => this.setState({ games: res.data }))
-  //     .catch(err => console.log(err));
-  // };
+  getGames = () => {
+    API.getGames()
+      .then(res => this.setState({ games: res.data }))
+      .catch(err => console.log(err));
+  };
 
   componentDidMount() {
     console.log('I was triggered during componentDidMount')
     
-    console.log(data);
+  
     this.getLines();
+    this.getGames();
     
     // this.getGames();
   }
