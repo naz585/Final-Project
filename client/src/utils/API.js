@@ -10,7 +10,7 @@ export default {
   },
 
   getGames: function (){
-    return axios.get("/api/nba").then(response => response.data)
+    return axios.get("/api/nba/games")
   },
     
   // Gets all saved books
