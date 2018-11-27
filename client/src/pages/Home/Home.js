@@ -100,7 +100,6 @@ class Home extends Component {
   }
 
   scrapedGames = () => {
-    console.log('i am here')
     const lines = this.state.lines.slice(1);
       return (
         <tbody>
