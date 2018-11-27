@@ -88,24 +88,24 @@ class Home extends Component {
 //  }
 //  return teams
 // }
-  ScheduleA = () => {
-    let styles = {
-      width: "125px",
-      margin: "0",
-      padding: "0",
-      float: "left"
-    }
-    let awayteams = []
-    for (let i = 0; i < data.games.length; i++) {
+  // ScheduleA = () => {
+  //   let styles = {
+  //     width: "125px",
+  //     margin: "0",
+  //     padding: "0",
+  //     float: "left"
+  //   }
+  //   let awayteams = []
+  //   for (let i = 0; i < this.state.games.games.length; i++) {
 
-      awayteams.push(<div key={i} style={styles}>{data.games[i].schedule.awayTeam.abbreviation}
-      <br/>
-      {data.games[i].schedule.homeTeam.abbreviation}
-      </div> )
-    }
-    return awayteams
+  //     awayteams.push(<div key={i} style={styles}>{this.state.games.games[i].schedule.awayTeam.abbreviation}
+  //     <br/>
+  //     {this.state.games.games[i].schedule.homeTeam.abbreviation}
+  //     </div> )
+  //   }
+  //   return awayteams
 
-  }
+  // }
 
   getBooks = () => {
     API.getBooks(this.state.q)
@@ -146,13 +146,15 @@ class Home extends Component {
   render() {
     return (
       <Container>
+        {console.log(this.state.games)}
       <Row>
         <Col size="md-12">
-
+        
         <Marquee>
-          <h3>
+          games go here
+          {/* <h3>
           {this.ScheduleA()}
-          </h3>
+          </h3> */}
         </Marquee>
         </Col>
         </Row>
