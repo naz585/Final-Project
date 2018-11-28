@@ -22,7 +22,8 @@ class Home extends Component {
       error: null,
       isLoaded: false,
       items: [],
-      lines: []
+      lines: [],
+      items2: []
     }
   };
 
@@ -48,10 +49,18 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
+  getGames2 = () => {
+    API.getGames2()
+      .then(res => this.setState({ items2: res.data }))
+      .catch(err => console.log(err));
+  };
+
   componentDidMount() {
     console.log('I was triggered during componentDidMount')
+    this.getGames2();
     this.getLines();
     this.getGames();
+    
     // this.getGames();
   }
 
@@ -68,9 +77,25 @@ class Home extends Component {
       width: "125px",
       margin: "0",
       padding: "0",
-      float: "left"
+      float: "left",
     }
     const games = this.state.items.games
+   return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+    <br/>
+    {game.schedule.homeTeam.abbreviation}
+    </div>))
+   
+  }
+
+  ScheduleB = () => {
+    let styles = {
+      width: "125px",
+      margin: "0",
+      padding: "0",
+      float: "left",
+      color: "red"
+    }
+    const games = this.state.items2.games
    return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
     <br/>
     {game.schedule.homeTeam.abbreviation}
@@ -91,19 +116,29 @@ class Home extends Component {
   render() {
     const lines = this.state.lines;
     const games = this.state.items;
+    const games2 = this.state.items;
     return (
+      
       <Container>
-        {console.log(this.state.items)}
       <Row>
         <Col size="md-12">
-        
+        <h3 className="mx-auto text-center" >Today's NBA schedule</h3>
         <Marquee>
           <h3>
           {games.length <= 0 ? null : this.ScheduleA()}
           </h3>
         </Marquee>
+        <h3 className="mx-auto text-center" >Today's NFL schedule</h3>
+        <Marquee>
+          <h3>
+          {games2.length <= 0 ? null : this.ScheduleB()}
+          </h3>
+        </Marquee>
+
+
         </Col>
         </Row>
+        
 
           <Row>
             <Col size="md-12">

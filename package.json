@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-   "engines": {
+  "engines": {
     "node": "10.11.0"
-   },
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -22,12 +22,14 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "auth0-js": "^9.8.2",
     "axios": "^0.16.2",
     "btoa": "^1.2.1",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.0.17",
-    "mysportsfeeds-node": "^2.0.1"
+    "mysportsfeeds-node": "^2.0.1",
+    "react-bootstrap": "^0.32.4"
   }
 }
