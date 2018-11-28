@@ -12,6 +12,24 @@ export default {
   getGames: function (){
     return axios.get("/api/nba/games")
   },
+
+
+
+
+
+  getNFLGameInfo: function(id) {
+    return axios.get('/api/nfl/gamesInfo/' + id);
+  },
+
+
+
+
+
+
+
+  getNFLGames: function(){
+    return axios.get("/api/nfl/games")
+  },
     
   // Gets all saved books
   getSavedBooks: function() {
