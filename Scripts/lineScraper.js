@@ -33,22 +33,6 @@ return axios.get("http://m.espn.com/nfl/dailyline?wjb").then(function(response) 
   });
   return nflResults;
 });
-
-//  axios.get("http://m.espn.com/nba/dailyline?wjb").then(function(response) {
-  
-//     var $ = cheerio.load(response.data);
-//     var nbaResults = [];
-//     $("tr").each(function(i, element) {
-  
-//       var matchups = $(element).text();
-  
-//       nbaResults.push({
-//         matchups: matchups,
-//       });
-//     });
-//     return nbaResults
-//   })
-
 }
 
 module.exports = scrape;
