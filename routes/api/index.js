@@ -5,6 +5,8 @@ const googleRoutes = require("./google");
 const linesRoutes = require("./lines")
 const nbaRoutes = require("./nba")
 const nflRoutes = require("./nfl")
+const nbaScraperRoutes =require("./nbaLines");
+
 
 // Book routes
 router.use("/books", bookRoutes);
@@ -16,6 +18,8 @@ router.use("/lines", linesRoutes);
 
 router.use("/nba", nbaRoutes);
 router.use("/nfl", nflRoutes);
+
+router.use("/nbaLines", nbaScraperRoutes);
 
 
 // For anything else, render the html page
