@@ -23,7 +23,7 @@ class Home extends Component {
       isLoaded: false,
       items: [],
       lines: [],
-      items2: []
+      items2: [],
       nbaLines: []
     }
   };
