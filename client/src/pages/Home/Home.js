@@ -80,7 +80,7 @@ class Home extends Component {
       float: "left",
     }
     const games = this.state.items.games
-   return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+    return games.length <= 0 ? null: ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
     <br/>
     {game.schedule.homeTeam.abbreviation}
     </div>))
@@ -96,7 +96,7 @@ class Home extends Component {
       color: "red"
     }
     const games = this.state.items2.games
-   return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+   return games.length <= 0 ? null: ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
     <br/>
     {game.schedule.homeTeam.abbreviation}
     </div>))
