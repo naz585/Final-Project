@@ -32,6 +32,10 @@
     -webkit-animation: example1 25s linear infinite;
     animation: example1 25s linear infinite;
    }
+
+   .marquee:hover {
+      color: #FF00FF;
+  }
    /* Move it (define the animation) */
    @-moz-keyframes example1 {
     0%   { -moz-transform: translateX(100%); }

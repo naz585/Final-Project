@@ -1,23 +1,39 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import NFL from "./pages/NFL";
 import NBA from "./pages/NBA";
-import Login from "./pages/LogIn";
-import Signup from "./pages/SignUp";
-
+import Callback from "./pages/callback";
+import history from "./history";
 import Nav from "./components/Nav";
+import Profile from "./components/Profile";
+import Auth from './auth';
+
+
+const auth = new Auth();
+
+const handleAuthentication = ({location}) => {
+  if (/access_token|id_token|error/.test(location.hash)) {
+    auth.handleAuthentication();
+  }
+}
+
+
+
 
 const App = () => (
-  <Router>
+  <Router history={history}>
     <div>
-      <Nav />
+      <Nav auth={auth} />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/home" render={(props) => <Home auth={auth} {...props} />} />
+        <Route exact path="/Profile" render={(props) => <Profile auth={auth} {...props} />} />
+        <Route path="/callback" render={(props) => {
+            handleAuthentication(props);
+            return <Callback {...props} /> 
+          }}/>
         <Route exact path="/NFL" component={NFL} />
         <Route exact path="/NBA" component={NBA} />
-        <Route exact path="/LogIn" component={Login} />
-        <Route exact path="/SignUp" component={Signup} />
       </Switch>
     </div>
   </Router>
