@@ -1,5 +1,9 @@
-.background-img{
-    height: 400px;
-    width: 100%; 
-};
 
+
+.bg-1{ 
+    background-image: url("../../images/nba.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: cover;
+  color: white;
+}
