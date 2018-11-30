@@ -40,7 +40,6 @@ const App = () => (
           }}/>
         <Route exact path="/NFL" component={NFL} />
         <Route exact path="/NBA" component={NBA} />
-        <Route exact path="/HomeBackground" component={HomeBackground} />
       </Switch>
     </div>
     

@@ -15,11 +15,6 @@ export default {
     return axios.get("/api/nba/games")
   },
 
-  
-  getGames2: function (){
-    return axios.get("/api/nfl/games2")
-  },
-
   nbaSeasonal: function (){
     return axios.get("/api/nba/season")
   },
@@ -33,6 +28,24 @@ export default {
   nbaPlayers: function (){
     return axios.get("/api/nba/players")
   },
+
+  getGames2: function (){
+    return axios.get("/api/nfl/games2")
+  },
+  NFLSeasonal: function (){
+    return axios.get("/api/nfl/NFLseason")
+  },
+ NFLStandings: function (){
+    return axios.get("/api/nfl/NFLstandings")
+  },
+    
+ NFLInjuries: function (){
+    return axios.get("/api/nfl/NFLinjuries")
+  },
+  NFLPlayers: function (){
+    return axios.get("/api/nfl/NFLplayers")
+  },
+
 
     
   // Gets all saved books

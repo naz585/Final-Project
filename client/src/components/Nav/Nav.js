@@ -92,6 +92,15 @@ class Nav extends Component {
                 
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className={window.location.pathname === "/Glossary" ? "nav-link active" : "nav-link"}
+                to="/FAQ"
+              >
+                Glossary
+                
+              </Link>
+            </li>
             {
               isAuthenticated() && (
                 <li className="nav-item">
