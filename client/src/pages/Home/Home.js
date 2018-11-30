@@ -55,7 +55,7 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('I was triggered during componentDidMount')
     this.getGames2();
     this.getLines();
@@ -117,6 +117,7 @@ class Home extends Component {
     const lines = this.state.lines;
     const games = this.state.items;
     const games2 = this.state.items;
+    
     return (
       
       <Container>
@@ -131,6 +132,7 @@ class Home extends Component {
         <h3 className="mx-auto text-center" >Today's NFL schedule</h3>
         <Marquee>
           <h3>
+            No Games Today
           {games2.length <= 0 ? null : this.ScheduleB()}
           </h3>
         </Marquee>
