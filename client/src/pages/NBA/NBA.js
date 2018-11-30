@@ -156,7 +156,6 @@ class NBA extends Component {
       {Injuries.length <= 0 ? null : this.playerInjury()}
       </Scrollbars>
       </div>
-      <Col size="md-12">
       </Col>
     </Row>
   </Container>
