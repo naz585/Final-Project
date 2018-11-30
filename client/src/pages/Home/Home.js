@@ -8,6 +8,9 @@ import React, { Component } from "react";
 import Marquee from "../../components/marquee"
 import table from "../../components/Table"
 import API from "../../utils/API";
+import NBABG from "../../components/HomeBackground"
+import NFLBG from "../../components/HomeBackground2"
+import StickyFooter from 'react-sticky-footer';
 import { Col, Row, Container } from "../../components/Grid";
 // import { List } from "../../components/List";
 
@@ -136,8 +139,9 @@ class Home extends Component {
     
     return (
       
-      <Container>
-      <Row>
+      <Container fluid>
+        <NBABG>
+          <Row>
         <Col size="md-12">
         <h3 className="mx-auto text-center" >Today's NBA schedule</h3>
         <Marquee>
@@ -145,38 +149,8 @@ class Home extends Component {
           {games.length <= 0 ? null : this.ScheduleA()}
           </h3>
         </Marquee>
-        <h3 className="mx-auto text-center" >Today's NFL schedule</h3>
-        <Marquee>
-          <h3>
-            No Games Today
-          {games2.length <= 0 ? null : this.ScheduleB()}
-          </h3>
-        </Marquee>
-
-
         </Col>
         </Row>
-        
-
-          <Row>
-            <Col size="md-12">
-              <table className="table-striped table-bordered lines">
-                <thead>
-                  <tr>
-                    <th scope="col">Away/Home</th>
-                    <th scope="col">Spread</th>
-                    <th scope="col">Moneyline</th>
-                    <th scope="col">Under/Over</th>
-                </tr>
-              </thead>
-                {lines.length <= 0 ? null : this.scrapedGames()}
-             </table>
-
-      </Col>
-        </Row>
-          <div style={spacer}>
-            </div>
-                
 
         <Row>
           <Col size="md-12">
@@ -194,59 +168,53 @@ class Home extends Component {
 
       </Col>
         </Row>
-        <Row>
-          <Col size="md-12">
-          <div className="spacer" style={spacer}>
+        </NBABG>
 
-          </div>
-          </Col>
-          <Col  size="md-12">
-            
+        
+        <div style={spacer}>
+            </div>
 
-              {/* <h1 className="text-center">
-                <strong>(React) Google Books Search</strong>
-              </h1>
-              <h2 className="text-center">Search for and Save Books of Interest.</h2> */}
-          
-          </Col>
-        </Row> 
+
+          <NFLBG>
+         <Row>
+        <Col size="md-12">
+        <h3 className="mx-auto text-center" >Today's NFL schedule</h3>
+        <Marquee>
         
-        <Row>
+          <h3>
+            No Games Today
+          {games2.length <= 0 ? null : this.ScheduleB()}
+          </h3>
+        </Marquee>
+        </Col>
+        </Row>  
+          <Row>
+
+
+            <Col size="md-12">
+              <table className="table-striped table-bordered lines">
+                <thead>
+                  <tr>
+                    <th scope="col">Away/Home</th>
+                    <th scope="col">Spread</th>
+                    <th scope="col">Moneyline</th>
+                    <th scope="col">Under/Over</th>
+                </tr>
+              </thead>
+                {lines.length <= 0 ? null : this.scrapedGames()}
+             </table>
+
+      </Col>
         </Row>
+        </NFLBG>
+        <div style={spacer}>
+            </div>
+      
         
-        <Row>
-          {/* <Col size="md-12">
-            <Card title="Results">
-              {this.state.books.length ? (
-                <List>
-                  {this.state.books.map(book => (
-                    <Book
-                      key={book.id}
-                      title={book.volumeInfo.title}
-                      subtitle={book.volumeInfo.subtitle}
-                      link={book.volumeInfo.infoLink}
-                      authors={book.volumeInfo.authors.join(", ")}
-                      description={book.volumeInfo.description}
-                      image={book.volumeInfo.imageLinks.thumbnail}
-                      Button={() => (
-                        <button
-                          onClick={() => this.handleBookSave(book.id)}
-                          className="btn btn-primary ml-2"
-                        >
-                          Save
-                        </button>
-                      )}
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">{this.state.message}</h2>
-              )}
-            </Card>
-          </Col> */}
-        </Row>
-        {/* <Footer /> */}
       </Container>
+
+
+      
     );
   }
 }

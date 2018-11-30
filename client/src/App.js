@@ -42,8 +42,9 @@ const App = () => (
         <Route exact path="/NBA" component={NBA} />
         <Route exact path="/HomeBackground" component={HomeBackground} />
       </Switch>
-      <Footer />
     </div>
+    
+
   </Router>
 );
 

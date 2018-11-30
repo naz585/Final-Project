@@ -1,10 +1,8 @@
-.background-img2{
-    height:   100px;
-    width: 100%; 
-};
 
-
-img.navPic.mr-5 {
-    opacity: 0.5;
-    height: 100px;
+.bg-2{
+    background-image: url("../../images/nfl.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: cover;
+  color: white;
 }
