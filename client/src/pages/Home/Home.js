@@ -172,6 +172,9 @@ class Home extends Component {
 
       </Col>
         </Row>
+          <div style={spacer}>
+            </div>
+                
 
         <Row>
           <Col size="md-12">
