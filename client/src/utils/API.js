@@ -19,6 +19,21 @@ export default {
   getGames2: function (){
     return axios.get("/api/nfl/games2")
   },
+
+  nbaSeasonal: function (){
+    return axios.get("/api/nba/season")
+  },
+  nbaStandings: function (){
+    return axios.get("/api/nba/standings")
+  },
+    
+  nbaInjuries: function (){
+    return axios.get("/api/nba/injuries")
+  },
+  nbaPlayers: function (){
+    return axios.get("/api/nba/players")
+  },
+
     
   // Gets all saved books
   getSavedBooks: function() {

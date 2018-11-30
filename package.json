@@ -26,8 +26,13 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.23",
     "mongoose": "^5.0.17",
     "mysportsfeeds-node": "^2.0.1",
-    "react-bootstrap": "^0.32.4"
+    "react-bootstrap": "^0.32.4",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-moment": "^0.8.4",
+    "react-timeout": "^1.1.2"
   }
 }

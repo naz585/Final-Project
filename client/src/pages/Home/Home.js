@@ -62,7 +62,7 @@ class Home extends Component {
       .catch(err => console.log(err));
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     console.log('I was triggered during componentDidMount')
     this.getGames2();
     this.getLines();
@@ -87,7 +87,7 @@ class Home extends Component {
       float: "left",
     }
     const games = this.state.items.games
-   return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+    return games.length <= 0 ? null: ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
     <br/>
     {game.schedule.homeTeam.abbreviation}
     </div>))
@@ -103,7 +103,7 @@ class Home extends Component {
       color: "red"
     }
     const games = this.state.items2.games
-   return ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+   return games.length <= 0 ? null: ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
     <br/>
     {game.schedule.homeTeam.abbreviation}
     </div>))
@@ -133,6 +133,7 @@ class Home extends Component {
     const lines = this.state.lines;
     const games = this.state.items;
     const games2 = this.state.items;
+    
     return (
       
       <Container>
@@ -147,6 +148,7 @@ class Home extends Component {
         <h3 className="mx-auto text-center" >Today's NFL schedule</h3>
         <Marquee>
           <h3>
+            No Games Today
           {games2.length <= 0 ? null : this.ScheduleB()}
           </h3>
         </Marquee>
