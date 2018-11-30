@@ -1,3 +1,7 @@
 .Games{
     color: white;
 }
+
+.info{
+    display:inline-block;
+}
