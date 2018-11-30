@@ -8,7 +8,9 @@ export default {
   getLines: function() {
     return axios.get("/api/lines").then(response => response.data)
   },
-
+  getNbaLines: function() {
+    return axios.get("/api/nbaLines").then(response => response.data)
+  },
   getGames: function (){
     return axios.get("/api/nba/games")
   },

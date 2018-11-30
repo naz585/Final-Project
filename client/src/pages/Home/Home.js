@@ -23,11 +23,10 @@ class Home extends Component {
       isLoaded: false,
       items: [],
       lines: [],
-      items2: []
+      items2: [],
+      nbaLines: []
     }
   };
-
-  
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -38,8 +37,16 @@ class Home extends Component {
   getLines = () => {
     API.getLines()
     .then(APIresponse =>{
-      console.log('got lines', APIresponse)
+      console.log('NFL lines', APIresponse)
        this.setState({lines: APIresponse})}
+       )
+      .catch(err => console.log(err));
+  };
+  getNbaLines = () => {
+    API.getNbaLines()
+    .then(APIresponse =>{
+      console.log('NBA lines', APIresponse)
+       this.setState({nbaLines: APIresponse})}
        )
       .catch(err => console.log(err));
   };
@@ -60,7 +67,7 @@ class Home extends Component {
     this.getGames2();
     this.getLines();
     this.getGames();
-    
+    this.getNbaLines();
     // this.getGames();
   }
 
@@ -113,6 +120,15 @@ class Home extends Component {
       )
     }
 
+    scrapedNbaGames = () => {
+      const nbaLines = this.state.nbaLines.slice(2);
+        return (
+          <tbody>
+            {nbaLines.map((nbaLine, idx) => <tr key={idx}><td>{nbaLine.favorite}</td><td>{nbaLine.line}</td><td>{nbaLine.dog}</td><td>{nbaLine.total}</td></tr>)}
+          </tbody>
+        )
+      }
+
   render() {
     const lines = this.state.lines;
     const games = this.state.items;
@@ -155,6 +171,26 @@ class Home extends Component {
               </thead>
                 {lines.length <= 0 ? null : this.scrapedGames()}
              </table>
+
+      </Col>
+        </Row>
+          <div style={spacer}>
+            </div>
+                
+
+        <Row>
+          <Col size="md-12">
+            <table className="table-striped table-bordered lines">
+              <thead>
+                <tr>
+                  <th scope="col">Favorite</th>
+                  <th scope="col">Spread</th>
+                  <th scope="col">Underdog</th>
+                  <th scope="col">Under/Over</th>
+                </tr>
+              </thead>
+                {lines.length <= 0 ? null : this.scrapedNbaGames()}
+          </table>
 
       </Col>
         </Row>

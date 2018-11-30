@@ -7,7 +7,7 @@ import 'moment-timezone';
 import { Scrollbars } from 'react-custom-scrollbars';
 import './NBA.css';
 import ReactTimeout from 'react-timeout'
-
+import HomeBackground2 from "../../components/HomeBackground2"
 class NBA extends Component {
   constructor(props) {
     super(props);
@@ -155,8 +155,8 @@ class NBA extends Component {
       <Scrollbars style={{ width: 200, height: 250 }}>
       {Injuries.length <= 0 ? null : this.playerInjury()}
       </Scrollbars>
-      
       </div>
+      <Col size="md-12">
       </Col>
     </Row>
   </Container>
