@@ -12,6 +12,8 @@ import NBABG from "../../components/HomeBackground"
 import NFLBG from "../../components/HomeBackground2"
 import StickyFooter from 'react-sticky-footer';
 import { Col, Row, Container } from "../../components/Grid";
+import { FaInfoCircle } from 'react-icons/fa';
+import ReactTooltip from 'react-tooltip'
 // import { List } from "../../components/List";
 
 
@@ -106,7 +108,7 @@ class Home extends Component {
       color: "red"
     }
     const games = this.state.items2.games
-   return games.length <= 0 ? null: ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
+   return games.length <= 0 ? null : ( games.map((game, idx) => <div key={idx} style={styles}>{game.schedule.awayTeam.abbreviation}
     <br/>
     {game.schedule.homeTeam.abbreviation}
     </div>))
@@ -157,10 +159,11 @@ class Home extends Component {
             <table className="table-striped table-bordered lines">
               <thead>
                 <tr>
-                  <th scope="col">Favorite</th>
-                  <th scope="col">Spread</th>
-                  <th scope="col">Underdog</th>
-                  <th scope="col">Under/Over</th>
+                  <th  data-tip="The selection that the markets sees as the most probable winner of a given event. The quoted odds reflect the extent to which the choice is favored."scope="col">Favorite<FaInfoCircle /><ReactTooltip /></th>
+                  <th data-tip="The predicted scoring differential between two opponents as quoted by a sportsbook" scope="col">Spread<FaInfoCircle /><ReactTooltip /></th>
+                  <th data-tip="Team perceived to be least likely to win." scope="col">Underdog<FaInfoCircle /><ReactTooltip /></th>
+                  <th data-tip="Bet on whether the total of any given variable will be under the mark set by the bookmaker/Bet on whether the total of any given variable will be over the mark set by a bookmaker. One of three basic bet types"
+                  scope="col">Under/Over<FaInfoCircle /><ReactTooltip /></th>
                 </tr>
               </thead>
                 {lines.length <= 0 ? null : this.scrapedNbaGames()}
@@ -182,7 +185,7 @@ class Home extends Component {
         <Marquee>
         
           <h3>
-            No Games Today
+            
           {games2.length <= 0 ? null : this.ScheduleB()}
           </h3>
         </Marquee>
@@ -195,10 +198,12 @@ class Home extends Component {
               <table className="table-striped table-bordered lines">
                 <thead>
                   <tr>
-                    <th scope="col">Away/Home</th>
-                    <th scope="col">Spread</th>
-                    <th scope="col">Moneyline</th>
-                    <th scope="col">Under/Over</th>
+                
+                    <th  data-tip="Home team plays at their stadium and is listed second" scope="col">Away/Home<FaInfoCircle /><ReactTooltip /></th>
+                    <th  data-tip="The predicted scoring differential between two opponents as quoted by a sportsbook" scope="col">Spread<FaInfoCircle /><ReactTooltip /></th>
+                    <th  data-tip="A bet on the outcome of a match/game. One of three basic bet types" scope="col">Moneyline<FaInfoCircle /><ReactTooltip /></th>
+                    <th  data-tip="Bet on whether the total of any given variable will be under the mark set by the bookmaker/Bet on whether the total of any given variable will be over the mark set by a bookmaker. One of three basic bet types" 
+                    scope="col">Under/Over<FaInfoCircle /><ReactTooltip /></th>
                 </tr>
               </thead>
                 {lines.length <= 0 ? null : this.scrapedGames()}

@@ -10,10 +10,9 @@ import ReactTimeout from "react-timeout";
 import BG from "../../components/HomeBackground";
 
 import { Link } from 'react-router-dom';
-import { FaInfoCircle } from 'react-icons/fa';
 import ReactDom from 'react-dom';
 import Popup from 'react-popup';
-import ReactTooltip from 'react-tooltip'
+
 
 
 class NBA extends Component {
@@ -171,11 +170,7 @@ class NBA extends Component {
 
         <div style={spacer}>
 
-          <div className ="info" data-tip="The predicted scoring differential between two opponents as quoted by a sportsbook">Spread<FaInfoCircle /><ReactTooltip /></div>
-          <div className ="info" data-tip="Team perceived to be least likely to win">Underdog<FaInfoCircle /><ReactTooltip /></div>
-          <div className ="info" data-tip="Bet on whether the total of any given variable will be under the mark set by the bookmaker/Bet on whether the total of any given variable will be over the mark set by a bookmaker. One of three basic bet types">Under/Over<FaInfoCircle /><ReactTooltip /></div>
-          <div className ="info" data-tip="A bet on the outcome of a match/game. One of three basic bet types">MoneyLine<FaInfoCircle /><ReactTooltip /></div>
-          <div className ="info" data-tip="Home team plays at their stadium and is listed second">Away/Home<FaInfoCircle /><ReactTooltip /></div>
+          
 
         </div>
       </BG>
