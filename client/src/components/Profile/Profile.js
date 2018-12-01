@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
-import './Profile.css';
+import React, { Component } from "react";
+import { Panel } from "react-bootstrap";
+import "./Profile.css";
 
 class Profile extends Component {
   componentWillMount() {
@@ -15,6 +15,9 @@ class Profile extends Component {
     }
   }
   render() {
+    const spacer = {
+      height: "300px"
+    };
     const { profile } = this.state;
     return (
       <div className="container">
@@ -27,6 +30,9 @@ class Profile extends Component {
             </div>
           </Panel>
         </div>
+        <div style={spacer} />
+        <div style={spacer} />
+        <div style={spacer} />
       </div>
     );
   }
