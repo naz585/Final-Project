@@ -1,21 +1,25 @@
-#root {
-   display: flex;
-   min-height: 100vh;
-   flex-direction: column;
- }
- 
- .container {
-   flex: 1;
- }
- .container-fluid {
-   flex: 1;
- }
 
- footer{
-   padding: 1.5rem;
-   background: #404040;
-   color: #999;
-   font-size: .85em;
-   overflow-x: hidden;
-   text-align: center;
- }
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+
+
+
+ footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding: 1.5rem;
+  width: 100%;
+  background: #404040;
+  color: #999;
+  font-size: .85em;
+  text-align: center;
+}
+ 

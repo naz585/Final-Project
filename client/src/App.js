@@ -5,6 +5,7 @@ import HomeBackground from "./components/HomeBackground";
 import FAQ from "./pages/FAQ";
 import NFL from "./pages/NFL";
 import NBA from "./pages/NBA";
+import Landing from "./pages/Landing"
 import Callback from "./pages/callback";
 import history from "./history";
 import Nav from "./components/Nav";
@@ -30,7 +31,7 @@ const App = () => (
     <div>
       <Nav auth={auth} />
       <Switch>
-        
+      <Route exact path="/" render={(props) => <Landing auth={auth} {...props} />} />
         <Route exact path="/home" render={(props) => <Home auth={auth} {...props} />} />
         <Route exact path="/FAQ" render={(props) => <FAQ auth={auth} {...props} />} />
         <Route exact path="/Profile" render={(props) => <Profile auth={auth} {...props} />} />

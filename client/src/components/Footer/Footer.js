@@ -37,19 +37,8 @@ class Footer extends Component {
     <div className="Footer">
       <div className="Footer-credits">
         <span className="Footer-credit">
-          Created and maintained by 
-          <a href="https://philipwalton.com">Philip Walton</a>.
-        </span> 
-        <span className="Footer-credit">
-          Source code and examples released under the 
-          <a href="https://github.com/philipwalton/solved-by-flexbox/blob/master/LICENSE">
-            MIT
-          </a> 
-          license.
-        </span> 
-        <span className="Footer-credit">
-          Website and documentation licensed under 
-          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+        Copyright &#9400; 
+          <a href="https://github.com/naz585/Final-Project">Cashing Winners</a>.
         </span>
       </div>
     </div>

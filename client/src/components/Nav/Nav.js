@@ -48,7 +48,7 @@ class Nav extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
 
-      <nav className="navbar navbar-expand-lg navbar-dark mb-2">
+      <nav className="navbar navbar-expand-lg navbar-dark">
       <img className="navPic img-fluid ml-5" src="https://sportshub.cbsistatic.com/i/r/2018/09/15/f0e813c2-ad7f-453e-855d-097d9f4feed7/thumbnail/770x433/cdf43928ded227cc4f95dd2b8d702116/top100-cover.png  " alt='left' width="300px" height="144px" />
         <div className="mx-auto">
         <Link className="navbar-brand mx-auto" to="/home">

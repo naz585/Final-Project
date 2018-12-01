@@ -5,22 +5,21 @@ import Moment from "react-moment";
 import "moment-timezone";
 import { Scrollbars } from "react-custom-scrollbars";
 import BG from "../../components/HomeBackground2";
+import Games from "../../components/NFL/Games.js"
+import Injury from "../../components/NFL/Injury.js"
+
 
 class NFL extends Component {
   constructor(props) {
     super(props);
     (this.state = {
       error: null,
-      isLoaded: false,
-      seasonalGames: [],
-      playerInjuries: [],
+      isLoaded: false,  
       Standings: [],
       Players: [],
+      playerInjuries: [],
       hasError: false
-    }),
-      function() {
-        console.log("setState completed", this.state);
-      };
+    })
   }
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -29,14 +28,6 @@ class NFL extends Component {
     });
   };
 
-  Seasonal = () => {
-    API.NFLSeasonal()
-      .then(APIresponse => {
-        console.log("Seasonal games", APIresponse.data);
-        this.setState({ seasonalGames: APIresponse.data });
-      })
-      .catch(err => console.log(err));
-  };
 
   Standings = () => {
     API.NFLStandings()
@@ -55,7 +46,6 @@ class NFL extends Component {
       })
       .catch(err => console.log(err));
   };
-
   Players = () => {
     API.NFLPlayers()
       .then(APIresponse => {
@@ -68,97 +58,40 @@ class NFL extends Component {
   componentDidMount() {
     console.log("I was triggered during componentDidMount");
     this.Standings();
-    this.Injuries();
-    this.Seasonal();
     this.Players();
+    this.Injuries();
     // this.getGames();
   }
 
-  seasonalGames = () => {
-    let styles = {
-      width: "140px",
-      fontSize: "20px",
-      margin: "0",
-      padding: "0",
-      float: "left",
-      color: "white"
-    };
-    let styles2 = {
-      fontSize: "16px"
-    };
-    const games = this.state.seasonalGames.games;
-
-    return games.length <= 0
-      ? null
-      : games.map((game, idx) => (
-          <div key={idx} style={styles} className="text-center mb-5">
-            <div key={idx} style={styles2}>
-              <Moment format="ddd MMM DD hh:mmA">
-                {game.schedule.startTime}
-              </Moment>
-            </div>
-            {game.schedule.awayTeam.abbreviation}
-            <br />
-            {game.schedule.homeTeam.abbreviation}
-          </div>
-        ));
-  };
-
-  playerInjury = () => {
-    let styles = {
-      width: "140px",
-      fontSize: "20px",
-      margin: "0",
-      padding: "0",
-      float: "left",
-      color: "white"
-    };
-
-    const games = this.state.playerInjuries.players;
-
-    return games.length <= 0
-      ? null
-      : games.map((game, idx) => (
-          <div key={idx} style={styles} className="text-center">
-            {game.firstname} {game.lastname}
-            <br />
-            {game.currentInjury.discription}
-          </div>
-        ));
-  };
-
-  static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
-  }
+  
 
   render() {
     const spacer = {
       height: "100px"
     };
-    const seasonalGames = this.state.seasonalGames;
-    const Injuries = this.state.playerInjuries;
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
-    }
     return (
       <BG>
         <Row>
           <Col size="lg-12">
-            <div className="col-md-6 float-left Games">
-              <Scrollbars style={{ width: 440, height: 250 }}>
-                {seasonalGames.length <= 0 ? null : this.seasonalGames()}
-              </Scrollbars>
-            </div>
-            <div className="col-md-6 float-left">
-              <Scrollbars style={{ width: 200, height: 250 }}>
-                {Injuries.length <= 0 ? null : this.playerInjury()}
-              </Scrollbars>
-            </div>
+            <Games>
+
+            </Games>
+           <Injury>
+
+           </Injury>
           </Col>
         </Row>
         <div style={spacer}>
+
+        </div>
+         <div style={spacer}>
+
+          
+
+        </div>
+        <div style={spacer}>
+
+          
 
         </div>
       </BG>

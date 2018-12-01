@@ -1,0 +1,19 @@
+
+
+
+
+
+.bg-L{
+    height: 1000px;
+    width: 100%;
+    color: White;
+    }
+
+    .first{
+        background-size: cover;
+        background-image: url("../../images/Landing.jpg");
+    }
+
+    .Spacer{
+        height: 350px;
+    }
