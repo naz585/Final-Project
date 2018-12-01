@@ -23,7 +23,7 @@ class Home extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
+    
       items: [],
       lines: [],
       items2: [],
@@ -55,13 +55,13 @@ class Home extends Component {
   };
   getGames = () => {
     API.getGames()
-      .then(res => this.setState({ items: res.data }))
+      .then(res => this.setState({ items: res.data}))
       .catch(err => console.log(err));
   };
 
   getGames2 = () => {
     API.getGames2()
-      .then(res => this.setState({ items2: res.data }))
+      .then(res => this.setState({ items2: res.data}))
       .catch(err => console.log(err));
   };
 
@@ -82,7 +82,7 @@ class Home extends Component {
 //  }
 //  return teams
 // }
-  ScheduleA = () => {
+   ScheduleA = () => {
     let styles = {
       width: "125px",
       margin: "0",
@@ -146,7 +146,7 @@ class Home extends Component {
         <h3 className="mx-auto text-center" >Today's NBA schedule</h3>
         <Marquee>
           <h3>
-          {games.length <= 0 ? null : this.ScheduleA()}
+          {games.length <= 0 ? null: this.ScheduleA()}
           </h3>
         </Marquee>
         </Col>

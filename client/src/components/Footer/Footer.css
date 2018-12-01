@@ -1,18 +1,21 @@
-.footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:60px;   /* Height of the footer */
-    background:#6cf;
-    
+#root {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
  }
- .bg {
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:60px;   /* Height of the footer */
-    background:white;
-    
+ 
+ .container {
+   flex: 1;
+ }
+ .container-fluid {
+   flex: 1;
  }
 
- 
+ footer{
+   padding: 1.5rem;
+   background: #404040;
+   color: #999;
+   font-size: .85em;
+   overflow-x: hidden;
+   text-align: center;
+ }

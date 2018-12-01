@@ -41,6 +41,7 @@ const App = () => (
         <Route exact path="/NFL" component={NFL} />
         <Route exact path="/NBA" component={NBA} />
       </Switch>
+      <Footer/>
     </div>
     
 
