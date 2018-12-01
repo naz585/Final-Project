@@ -1,0 +1,74 @@
+.global-width{
+    
+        font-family: Arial;
+        font-size: 16px;
+        letter-spacing: .5px;
+        color: #293243;
+    
+}
+
+.letter li p:first-child {
+    margin: 0 0 5px;
+    font-weight: 700;
+}
+
+
+.anchors {
+    padding: 18px 0 19px;
+    text-align: center;
+}
+.anchors a {
+
+    font-family: "DinnRegular",Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 1px 3px 0;
+    padding: 6px 2px;
+    width: 22px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background-color: #283d63;
+}
+.anchors a:hover { 
+    background-color: rgb(57, 50, 161);
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+   a.empty, a.empty:hover {
+    color: #9298a5;
+    background-color: #3d4658;
+    pointer-events: none;
+    cursor: default;
+}
+
+.article-intro-container h1 {
+    position: relative;
+    font-size: 38px;
+    font-family: "DinnBold",Arial,Helvetica,sans-serif;
+    line-height: 43px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.article-intro-container.with-searchbar p {
+    margin: 0 auto 30px;
+    text-align: center;
+}
+.scroll-top-button {
+position: fixed;
+    width: 60px;
+    height: 60px;
+    top: auto;
+    bottom: 30px;
+    left: auto;
+    right: 30px;
+    overflow: hidden;
+    text-indent: -999px;
+    background: url(https://www.pinnacle.com/Cms_Data/Sites/Guest/Themes/Default/images/bet-resources-2016/backToTopIcon.svg) center center transparent no-repeat;
+    z-index: 5;
+}
