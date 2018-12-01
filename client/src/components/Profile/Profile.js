@@ -23,12 +23,12 @@ class Profile extends Component {
       <div className="container">
         <div className="profile-area">
           <h1>{profile.name}</h1>
-          <Panel header="Profile">
-            <img src={profile.picture} alt="profile" />
+          <div className="card">
+            <img className="card-img-top" src={profile.picture} alt="profile" />
             <div>
               <h3>{profile.nickname}</h3>
             </div>
-          </Panel>
+          </div>
         </div>
         <div style={spacer} />
         <div style={spacer} />
