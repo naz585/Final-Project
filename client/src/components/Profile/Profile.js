@@ -23,8 +23,8 @@ class Profile extends Component {
       <div className="container">
         <div className="profile-area">
           <h1>{profile.name}</h1>
-          <div className="card">
-            <img className="card-img-top" src={profile.picture} alt="profile" />
+          <div className="card" style={{ width: "18rem"}}>
+            <img className="card-img-top" src={profile.picture} alt="Card image cap" />
             <div>
               <h3>{profile.nickname}</h3>
             </div>
