@@ -63,7 +63,6 @@ class NFLDaily extends Component {
     return (
       
           <h3>
-              No Games Today
           {games.length <= 0 ? 'No Games Today': this.ScheduleB()}
           </h3>
 

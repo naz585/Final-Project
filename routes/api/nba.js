@@ -87,12 +87,10 @@ router.route("/games").get(function (req,res){
   
   
 
-  msf.getData('nba', '2018-2019-regular', 'daily_games','json',{date:'20181201'}).then(function(data){
+  msf.getData('nba', '2018-2019-regular', 'daily_games','json',{date:'20181205'}).then(function(data){
     //console.log(msf)
     res.send(data)
     })
-
-    //function(league, season, feed, format, params)
 
 })
   module.exports = router;

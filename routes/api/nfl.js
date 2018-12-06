@@ -87,7 +87,7 @@ router.route("/games2").get(function (req,res){
   
   
 
-  msf.getData('nfl', '2018-2019-regular', 'daily_games','json',{date:'20181201'}).then(function(data){
+  msf.getData('nfl', '2018-2019-regular', 'daily_games','json',{date:'20181205'}).then(function(data){
     //console.log(msf)
     res.send(data)
     })
